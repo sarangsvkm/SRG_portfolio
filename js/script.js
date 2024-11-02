@@ -11,6 +11,7 @@ window.onscroll = () =>{
     header.classList.remove('active');
 }
 
+
 let cursor1 = document.querySelector('.cursor-1');
 let cursor2 = document.querySelector('.cursor-2');
 
@@ -34,3 +35,41 @@ document.querySelectorAll('a').forEach(links =>{
     }
 
 });
+
+function calculateAge(dob) {
+    const birthDate = new Date(dob);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+
+    // Adjust if birthday hasn't occurred yet this year
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+// Assuming date of birth is already set (e.g., '1999-10-31')
+const dob = '2000-04-25';
+document.getElementById('age').textContent = calculateAge(dob);
+
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault(); // This prevents the default context menu from appearing
+});
+
+
+document.addEventListener('keydown', function(e) {
+    // For macOS: Command + Option + C
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.code === 'KeyC') {
+        e.preventDefault();
+    }
+
+    // For Windows/Linux: Ctrl + Shift + C
+    if (e.ctrlKey && e.shiftKey && e.code === 'KeyC') {
+        e.preventDefault();
+    }
+});
+
+
+
+

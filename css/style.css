@@ -1,3 +1,6 @@
+@charset "UTF-8"; /* If you have this rule, it should be first */
+@import url('style.css'); /* Your @import rule should be next */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
 :root{
@@ -519,8 +522,7 @@ header .follow a:hover{
 .contact .icons-container .icons h3{
     color:#111;
     font-size: 2rem;
-    padding:.5rem 0;
-    padding-top: 1rem;
+    padding: 1rem 0 .5rem;
 }
 
 .contact .icons-container .icons p{
@@ -631,7 +633,7 @@ header .follow a:hover{
     }
 
     header.active{
-        left:0%;
+        left:0;
     }
 
     .cursor-1,

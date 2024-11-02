@@ -9,7 +9,8 @@
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<!--    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>-->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
@@ -89,7 +90,8 @@
         <p>I am a fresher who is passionate about web development and design. I have acquired skills in Python, Java, Django, HTML, CSS, and Git through working on various projects. I enjoy creating user-friendly and responsive websites that meet the needs of the clients. I am also interested in learning new technologies and frameworks to enhance my knowledge and skills. Besides web development, I have other hobbies such as travel, volunteering, and photography that enrich my life experiences. I am looking for a job opportunity that will allow me to apply my skills and learn from experienced professionals. If you hire me, I will work hard to contribute to your company's goals and vision.</p>
         <div class="box-container">
             <div class="box">
-                <p> <span> age : </span> 24 </p>
+<!--                <p> <span> age : </span> 24 </p>-->
+                <p> <span> Age: </span> <a id="age"></a> </p>
                 <p> <span> gender : </span> male </p>
                 <p> <span> language : </span> malaylam, english </p>
                 <p> <span> work : </span> full stack developer </p>
@@ -306,7 +308,7 @@
         </div>
 
     </div> -->
-
+    </div>s
 </section>
 
 <!-- experience section ends -->
@@ -489,17 +491,57 @@
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
 <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzT9W3TLqX5EHqqFC69V2jhdrcScRAwPUFh3LvzyctQES4GYu72yDJaG1i1xDi_xU6Xcg/exec'
-    const form = document.forms['contactform']
-  
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzT9W3TLqX5EHqqFC69V2jhdrcScRAwPUFh3LvzyctQES4GYu72yDJaG1i1xDi_xU6Xcg/exec';
+    const form = document.forms['contactform'];
+
+    // form.addEventListener('submit', e => {
+    //     e.preventDefault();
+    //
+    //     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+    //         .then(response => {
+    //             console.log('Success:', response);
+    //             alert("Thank you! Your form is submitted successfully.");
+    //             window.location.reload();
+    //         })
+    //         .catch(error => {
+    //             console.error('Error!', error);
+    //             alert("Form submission failed. Please try again later.");
+    //         });
+    // });
+
     form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => alert("Thank you! your form is submitted successfully." ))
-        .then(() => {  window.location.reload(); })
-        .catch(error => console.error('Error!', error.message))
-    })
-  </script>
+        e.preventDefault();
+
+        fetch(scriptURL, {method: 'POST', body: new FormData(form)})
+            .then(response => {
+                console.log('Success!', response);
+                alert("Thank you! Your form is submitted successfully.");
+                form.reset(); // Clears the form fields
+            })
+            .catch(error => {
+                console.error('Error!', error);
+                alert("There was an error submitting your form. Please try again.");
+            });
+    });
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+    document.addEventListener('keydown', function(e) {
+        // For macOS: Command + Option + C
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.code === 'KeyC') {
+            e.preventDefault();
+        }
+
+        // For Windows/Linux: Ctrl + Shift + C
+        if (e.ctrlKey && e.shiftKey && e.code === 'KeyC') {
+            e.preventDefault();
+        }
+    });
+
+
+</script>
+
 </body>
 </html>
 
